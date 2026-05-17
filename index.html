@@ -104,6 +104,11 @@
       gap: 8px;
     }
 
+    .participant-field,
+    .champion-field {
+      grid-column: 1 / -1;
+    }
+
     .field label,
     .section-title {
       color: #dfe6f5;
@@ -255,6 +260,12 @@
       gap: 10px;
     }
 
+    .champion-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
     .option-pill {
       position: relative;
       display: flex;
@@ -280,12 +291,20 @@
       pointer-events: none;
     }
 
-    .option-pill span {
+    .option-pill > span {
       width: 100%;
       font-size: 1rem;
       font-weight: 800;
       line-height: 1.25;
       overflow-wrap: anywhere;
+    }
+
+    .champion-pill > span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      text-align: center;
     }
 
     .option-pill.is-selected,
@@ -368,11 +387,15 @@
       }
 
       .field-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .option-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .champion-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
       .matches-head {
@@ -394,22 +417,54 @@
 
     <form id="predictionForm" class="form-panel">
       <section class="field-grid" aria-label="Datos del participante">
-        <div class="field">
-          <label for="nombre">Nombre del participante</label>
+        <div class="field participant-field">
+          <label for="nombre">Nombre del participante (con este nombre se te va a ver en la tabla de posiciones)</label>
           <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
         </div>
-        <div class="field">
-          <label for="categoria">Grupo o categoría</label>
-          <select id="categoria" name="categoria" required>
-            <option value="">Selecciona una opción</option>
-            <option value="Familia">Familia</option>
-            <option value="Curso">Curso</option>
-            <option value="Otro">Otro</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="campeon">Campeón del Mundo</label>
-          <input id="campeon" name="campeon" type="text" placeholder="Ej: Brasil" required>
+        <div class="field champion-field">
+          <span class="section-title">Campeón del Mundo</span>
+          <div class="champion-grid" role="radiogroup" aria-label="Campeón del Mundo">
+            
+            <label class="option-pill champion-pill" for="campeon-0">
+              <input id="campeon-0" type="radio" name="campeon" value="Inglaterra" required>
+              <span><img class="flag-img" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3f4-e0067-e0062-e0065-e006e-e0067-e007f.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"><span>Inglaterra</span></span>
+            </label>
+
+            <label class="option-pill champion-pill" for="campeon-1">
+              <input id="campeon-1" type="radio" name="campeon" value="Francia" required>
+              <span><img class="flag-img" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1eb-1f1f7.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"><span>Francia</span></span>
+            </label>
+
+            <label class="option-pill champion-pill" for="campeon-2">
+              <input id="campeon-2" type="radio" name="campeon" value="Brasil" required>
+              <span><img class="flag-img" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e7-1f1f7.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"><span>Brasil</span></span>
+            </label>
+
+            <label class="option-pill champion-pill" for="campeon-3">
+              <input id="campeon-3" type="radio" name="campeon" value="España" required>
+              <span><img class="flag-img" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ea-1f1f8.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"><span>España</span></span>
+            </label>
+
+            <label class="option-pill champion-pill" for="campeon-4">
+              <input id="campeon-4" type="radio" name="campeon" value="Portugal" required>
+              <span><img class="flag-img" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f5-1f1f9.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"><span>Portugal</span></span>
+            </label>
+
+            <label class="option-pill champion-pill" for="campeon-5">
+              <input id="campeon-5" type="radio" name="campeon" value="Alemania" required>
+              <span><img class="flag-img" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e9-1f1ea.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"><span>Alemania</span></span>
+            </label>
+
+            <label class="option-pill champion-pill" for="campeon-6">
+              <input id="campeon-6" type="radio" name="campeon" value="Argentina" required>
+              <span><img class="flag-img" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1e6-1f1f7.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"><span>Argentina</span></span>
+            </label>
+
+            <label class="option-pill champion-pill" for="campeon-7">
+              <input id="campeon-7" type="radio" name="campeon" value="Otro" required>
+              <span><span>Otro</span></span>
+            </label>
+          </div>
         </div>
       </section>
 
@@ -1113,13 +1168,11 @@
   <script>
     const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybBXFJiatIXBqeXPSle-3FovQtZ074LWgiI-8IU4oCvGi-_p0IOfZ3im8equmiyFJo/exec";
     const ETAPA = "E01";
-    const FORM_METADATA = {"etapa": "E01", "hoja": "Fase de Grupos", "generado": "2026-05-17T16:43:03", "total_partidos": 25};
+    const FORM_METADATA = {"etapa": "E01", "hoja": "Fase de Grupos", "generado": "2026-05-17T17:04:26", "total_partidos": 25};
     const PARTIDOS = [{"numero": 1, "equipo_a": "México", "equipo_b": "Sudáfrica", "bandera_a": "🇲🇽", "bandera_b": "🇿🇦", "opciones": ["Gana México", "Empate", "Gana Sudáfrica"]}, {"numero": 2, "equipo_a": "Estados Unidos", "equipo_b": "Paraguay", "bandera_a": "🇺🇸", "bandera_b": "🇵🇾", "opciones": ["Gana Estados Unidos", "Empate", "Gana Paraguay"]}, {"numero": 3, "equipo_a": "Brasil", "equipo_b": "Marruecos", "bandera_a": "🇧🇷", "bandera_b": "🇲🇦", "opciones": ["Gana Brasil", "Empate", "Gana Marruecos"]}, {"numero": 4, "equipo_a": "Australia", "equipo_b": "Turquía", "bandera_a": "🇦🇺", "bandera_b": "🇹🇷", "opciones": ["Gana Australia", "Empate", "Gana Turquía"]}, {"numero": 5, "equipo_a": "Holanda", "equipo_b": "Japón", "bandera_a": "🇳🇱", "bandera_b": "🇯🇵", "opciones": ["Gana Holanda", "Empate", "Gana Japón"]}, {"numero": 6, "equipo_a": "Bélgica", "equipo_b": "Egipto", "bandera_a": "🇧🇪", "bandera_b": "🇪🇬", "opciones": ["Gana Bélgica", "Empate", "Gana Egipto"]}, {"numero": 7, "equipo_a": "Francia", "equipo_b": "Senegal", "bandera_a": "🇫🇷", "bandera_b": "🇸🇳", "opciones": ["Gana Francia", "Empate", "Gana Senegal"]}, {"numero": 8, "equipo_a": "Argentina", "equipo_b": "Argelia", "bandera_a": "🇦🇷", "bandera_b": "🇩🇿", "opciones": ["Gana Argentina", "Empate", "Gana Argelia"]}, {"numero": 9, "equipo_a": "Inglaterra", "equipo_b": "Croacia", "bandera_a": "🏴", "bandera_b": "🇭🇷", "opciones": ["Gana Inglaterra", "Empate", "Gana Croacia"]}, {"numero": 10, "equipo_a": "México", "equipo_b": "Corea", "bandera_a": "🇲🇽", "bandera_b": "🇰🇷", "opciones": ["Gana México", "Empate", "Gana Corea"]}, {"numero": 11, "equipo_a": "Estados Unidos", "equipo_b": "Australia", "bandera_a": "🇺🇸", "bandera_b": "🇦🇺", "opciones": ["Gana Estados Unidos", "Empate", "Gana Australia"]}, {"numero": 12, "equipo_a": "Holanda", "equipo_b": "Suecia", "bandera_a": "🇳🇱", "bandera_b": "🇸🇪", "opciones": ["Gana Holanda", "Empate", "Gana Suecia"]}, {"numero": 13, "equipo_a": "Bélgica", "equipo_b": "Irán", "bandera_a": "🇧🇪", "bandera_b": "🇮🇷", "opciones": ["Gana Bélgica", "Empate", "Gana Irán"]}, {"numero": 14, "equipo_a": "Argentina", "equipo_b": "Austria", "bandera_a": "🇦🇷", "bandera_b": "🇦🇹", "opciones": ["Gana Argentina", "Empate", "Gana Austria"]}, {"numero": 15, "equipo_a": "Noruega", "equipo_b": "Senegal", "bandera_a": "🇳🇴", "bandera_b": "🇸🇳", "opciones": ["Gana Noruega", "Empate", "Gana Senegal"]}, {"numero": 16, "equipo_a": "Suiza", "equipo_b": "Canadá", "bandera_a": "🇨🇭", "bandera_b": "🇨🇦", "opciones": ["Gana Suiza", "Empate", "Gana Canadá"]}, {"numero": 17, "equipo_a": "Ecuador", "equipo_b": "Alemania", "bandera_a": "🇪🇨", "bandera_b": "🇩🇪", "opciones": ["Gana Ecuador", "Empate", "Gana Alemania"]}, {"numero": 18, "equipo_a": "Japón", "equipo_b": "Suecia", "bandera_a": "🇯🇵", "bandera_b": "🇸🇪", "opciones": ["Gana Japón", "Empate", "Gana Suecia"]}, {"numero": 19, "equipo_a": "Turquía", "equipo_b": "Estados Unidos", "bandera_a": "🇹🇷", "bandera_b": "🇺🇸", "opciones": ["Gana Turquía", "Empate", "Gana Estados Unidos"]}, {"numero": 20, "equipo_a": "Paraguay", "equipo_b": "Australia", "bandera_a": "🇵🇾", "bandera_b": "🇦🇺", "opciones": ["Gana Paraguay", "Empate", "Gana Australia"]}, {"numero": 21, "equipo_a": "Uruguay", "equipo_b": "España", "bandera_a": "🇺🇾", "bandera_b": "🇪🇸", "opciones": ["Gana Uruguay", "Empate", "Gana España"]}, {"numero": 22, "equipo_a": "Noruega", "equipo_b": "Francia", "bandera_a": "🇳🇴", "bandera_b": "🇫🇷", "opciones": ["Gana Noruega", "Empate", "Gana Francia"]}, {"numero": 23, "equipo_a": "Egipto", "equipo_b": "Irán", "bandera_a": "🇪🇬", "bandera_b": "🇮🇷", "opciones": ["Gana Egipto", "Empate", "Gana Irán"]}, {"numero": 24, "equipo_a": "Argelia", "equipo_b": "Austria", "bandera_a": "🇩🇿", "bandera_b": "🇦🇹", "opciones": ["Gana Argelia", "Empate", "Gana Austria"]}, {"numero": 25, "equipo_a": "Colombia", "equipo_b": "Portugal", "bandera_a": "🇨🇴", "bandera_b": "🇵🇹", "opciones": ["Gana Colombia", "Empate", "Gana Portugal"]}];
 
     const form = document.querySelector("#predictionForm");
     const nombreInput = document.querySelector("#nombre");
-    const categoriaInput = document.querySelector("#categoria");
-    const campeonInput = document.querySelector("#campeon");
     const submitButton = document.querySelector("#submitButton");
     const progressText = document.querySelector("#progressText");
     const progressBar = document.querySelector("#progressBar");
@@ -1135,11 +1188,15 @@
       return matchCards.filter((card) => card.querySelector("input[type='radio']:checked")).length;
     }
 
+    function campeonSeleccionado() {
+      const seleccion = form.querySelector('input[name="campeon"]:checked');
+      return seleccion ? seleccion.value : "";
+    }
+
     function datosBaseCompletos() {
       return Boolean(
         nombreInput.value.trim() &&
-        categoriaInput.value &&
-        campeonInput.value.trim()
+        campeonSeleccionado()
       );
     }
 
@@ -1151,12 +1208,14 @@
       progressText.textContent = `Respondidas ${respondidas} de ${total}`;
       progressBar.style.width = `${porcentaje}%`;
 
+      document.querySelectorAll(".option-pill").forEach((label) => {
+        const input = label.querySelector("input");
+        label.classList.toggle("is-selected", Boolean(input && input.checked));
+      });
+
       matchCards.forEach((card) => {
         const checked = card.querySelector("input[type='radio']:checked");
         const state = card.querySelector("[data-match-state]");
-        card.querySelectorAll(".option-pill").forEach((label) => {
-          label.classList.toggle("is-selected", label.querySelector("input").checked);
-        });
         card.classList.toggle("is-complete", Boolean(checked));
         state.textContent = checked ? "Respondido" : "Sin responder";
       });
@@ -1183,8 +1242,7 @@
       return {
         timestamp: new Date().toISOString(),
         nombre: nombreInput.value.trim(),
-        categoria: categoriaInput.value,
-        campeon: campeonInput.value.trim(),
+        campeon: campeonSeleccionado(),
         etapa: ETAPA,
         respuestas,
         plano,

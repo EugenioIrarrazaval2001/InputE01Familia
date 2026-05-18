@@ -377,6 +377,223 @@
       color: var(--danger);
     }
 
+    .app-section[hidden] {
+      display: none !important;
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin: 0 0 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #eaf0fb;
+      cursor: pointer;
+      padding: 0 14px;
+      font-size: 0.94rem;
+      font-weight: 850;
+      transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
+    }
+
+    .nav-back:active {
+      transform: scale(0.99);
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .menu-hero {
+      padding-top: 28px;
+      text-align: center;
+    }
+
+    .menu-title {
+      max-width: none;
+      font-size: clamp(3rem, 14vw, 6.6rem);
+      line-height: 0.92;
+    }
+
+    .menu-card {
+      width: 100%;
+      min-height: 68px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(20, 34, 58, 0.96), rgba(12, 20, 36, 0.96));
+      color: var(--text);
+      cursor: pointer;
+      padding: 0 18px;
+      text-align: center;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+      transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
+    }
+
+    .menu-card:active {
+      transform: scale(0.99);
+    }
+
+    .menu-card strong {
+      display: block;
+      font-size: 1.06rem;
+      line-height: 1.2;
+    }
+
+    .content-panel {
+      display: grid;
+      gap: 16px;
+      margin-top: 14px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(16, 26, 44, 0.82);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .rules-block {
+      display: grid;
+      gap: 8px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .rules-block:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .rules-block h2 {
+      margin: 0;
+      font-size: 1.16rem;
+      line-height: 1.25;
+    }
+
+    .rules-block p,
+    .rules-block li {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .rules-block p {
+      margin: 0;
+    }
+
+    .rules-block ul,
+    .rules-block ol {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .score-table {
+      overflow: hidden;
+      display: grid;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      background: rgba(5, 9, 21, 0.32);
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      min-height: 46px;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+    }
+
+    .score-row:last-child {
+      border-bottom: 0;
+    }
+
+    .score-row strong {
+      color: #eaf0fb;
+      font-size: 1.05rem;
+    }
+
+    .score-row span:last-child {
+      color: var(--text);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .score-row.score-total {
+      min-height: 58px;
+      border-top: 1px solid rgba(24, 211, 162, 0.35);
+      background: linear-gradient(135deg, rgba(24, 211, 162, 0.18), rgba(247, 201, 72, 0.12));
+      color: var(--text);
+    }
+
+    .score-row.score-total strong,
+    .score-row.score-total span:last-child {
+      color: var(--accent);
+      font-size: 1.16rem;
+    }
+
+    .payment-card {
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(24, 211, 162, 0.22);
+      border-radius: 18px;
+      background: rgba(24, 211, 162, 0.08);
+      padding: 14px;
+    }
+
+    .payment-row {
+      display: grid;
+      grid-template-columns: minmax(96px, auto) minmax(0, 1fr);
+      gap: 8px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .payment-row strong {
+      color: #eaf0fb;
+    }
+
+    .copy-button {
+      min-height: 52px;
+      border: 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), #54e6c2);
+      color: #04100d;
+      cursor: pointer;
+      padding: 0 14px;
+      font-weight: 950;
+    }
+
+    .unavailable-card {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+      padding: 22px 16px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(16, 26, 44, 0.82);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .unavailable-card h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .unavailable-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
     @media (min-width: 720px) {
       .page-shell {
         padding-top: 32px;
@@ -398,6 +615,10 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
+      .content-panel {
+        padding: 22px;
+      }
+
       .matches-head {
         top: 10px;
         margin-inline: 0;
@@ -409,22 +630,135 @@
 </head>
 <body>
   <main class="page-shell">
-    <section class="hero">
-      <p class="eyebrow">🏆 Polla Mundialera · E01</p>
-      <h1>Formulario de pronósticos</h1>
-      <p>Completa tus datos, elige tu campeón y responde cada partido. El envío quedará listo para conectar con Google Sheets mediante Apps Script.</p>
+    <section id="section-menu" class="app-section">
+      <section class="hero menu-hero">
+        <h1 class="menu-title">🏆 Polla Mundialera 2026</h1>
+      </section>
+
+      <section class="menu-grid" aria-label="Secciones disponibles">
+        <button class="menu-card" type="button" data-section-target="bases">
+          <strong>Bases de la polla</strong>
+        </button>
+        <button class="menu-card" type="button" data-section-target="fase-grupos">
+          <strong>Formulario fase de grupos</strong>
+        </button>
+        <button class="menu-card" type="button" data-section-target="dieciseisavos">
+          <strong>Formulario dieciseisavos</strong>
+        </button>
+        <button class="menu-card" type="button" data-section-target="octavos">
+          <strong>Formulario octavos</strong>
+        </button>
+        <button class="menu-card" type="button" data-section-target="cuartos">
+          <strong>Formulario cuartos</strong>
+        </button>
+        <button class="menu-card" type="button" data-section-target="semifinales">
+          <strong>Formulario semifinales</strong>
+        </button>
+        <button class="menu-card" type="button" data-section-target="final">
+          <strong>Formulario final</strong>
+        </button>
+      </section>
     </section>
 
-    <form id="predictionForm" class="form-panel">
-      <section class="field-grid" aria-label="Datos del participante">
-        <div class="field participant-field">
-          <label for="nombre">Nombre del participante (con este nombre se te va a ver en la tabla de posiciones)</label>
-          <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
-        </div>
-        <div class="field champion-field">
-          <span class="section-title">Campeón del Mundo</span>
-          <div class="champion-grid" role="radiogroup" aria-label="Campeón del Mundo">
-            
+    <section id="section-bases" class="app-section" hidden>
+      <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
+      <section class="hero">
+        <p class="eyebrow">🏆 Bases Polla Mundialera</p>
+        <h1>Bases de la Polla Mundialera</h1>
+        <p>Reglas generales, plazos, puntajes, premios y datos de transferencia.</p>
+      </section>
+
+      <section class="content-panel">
+        <article class="rules-block">
+          <h2>1. Formato general</h2>
+          <ul>
+            <li>La polla se juega respondiendo en cada ronda el formulario web.</li>
+            <li>Al terminarse una ronda se libera el formulario de la siguiente, el cual debe ser respondido antes del comienzo de la nueva ronda.</li>
+            <li>Se consideran 25 partidos seleccionados de la fase de grupo más las eliminatorias completas.</li>
+            <li>El valor de inscripción es de $3000 por participante. Pueden participar todos los que quieran por familia.</li>
+          </ul>
+        </article>
+
+        <article class="rules-block">
+          <h2>2. Plazos</h2>
+          <p>Cada cuestionario debe responderse antes de que comience el primer partido de la ronda siguiente.</p>
+          <p>El pago de inscripción es hasta el inicio del primer partido de la fase de grupos.</p>
+        </article>
+
+        <article class="rules-block">
+          <h2>3. Ranking</h2>
+          <p>El ranking se actualiza todos los días.</p>
+        </article>
+
+        <article class="rules-block">
+          <h2>4. Premio</h2>
+          <ul>
+            <li>🥇 El ganador se lleva el 60% del pozo.</li>
+            <li>🥈 El segundo se lleva el 30% del pozo.</li>
+            <li>🥉 El tercero se lleva el 10% del pozo.</li>
+          </ul>
+        </article>
+
+        <article class="rules-block">
+          <h2>5. Sistema de puntos</h2>
+          <ul>
+            <li>1 punto por partido para la fase de grupos, dieciseisavos y octavos.</li>
+            <li>2 puntos por partido para los cuartos y las semifinales.</li>
+            <li>3 puntos para la final.</li>
+            <li>1 punto extra por partido eliminatorio por acertar cómo pasa el equipo: 90 minutos, tiempo extra o penales. Para sumarlo, es requisito haber acertado quién pasa.</li>
+            <li>5 puntos bonus por acertar al campeón al comienzo del torneo.</li>
+          </ul>
+        </article>
+
+        <article class="rules-block">
+          <h2>Puntajes máximos por ronda</h2>
+          <div class="score-table" aria-label="Puntajes máximos por ronda">
+            <div class="score-row"><span>Fase de grupos</span><strong>25 pts</strong></div>
+            <div class="score-row"><span>Dieciseisavos</span><strong>32 pts</strong></div>
+            <div class="score-row"><span>Octavos</span><strong>16 pts</strong></div>
+            <div class="score-row"><span>Cuartos</span><strong>12 pts</strong></div>
+            <div class="score-row"><span>Semifinales</span><strong>6 pts</strong></div>
+            <div class="score-row"><span>Final</span><strong>4 pts</strong></div>
+            <div class="score-row"><span>Bonus campeón</span><strong>5 pts</strong></div>
+            <div class="score-row score-total"><span>Total máximo</span><strong>100 pts</strong></div>
+          </div>
+        </article>
+
+        <article class="rules-block">
+          <h2>Datos de transferencia</h2>
+          <p>El pago debe realizarse a la siguiente cuenta bancaria:</p>
+          <div class="payment-card">
+            <div class="payment-row"><strong>Nombre:</strong><span>Eugenio Irarrazaval</span></div>
+            <div class="payment-row"><strong>RUT:</strong><span>20829077-0</span></div>
+            <div class="payment-row"><strong>Banco:</strong><span>Banco Santander</span></div>
+            <div class="payment-row"><strong>Tipo de cuenta:</strong><span>Cuenta Vista</span></div>
+            <div class="payment-row"><strong>Número de cuenta:</strong><span>0-011-00-46130-3</span></div>
+            <div class="payment-row"><strong>Correo:</strong><span>eirarrazavalr@gmail.com</span></div>
+          </div>
+          <button id="copyTransferButton" class="copy-button" type="button">Copiar datos de transferencia</button>
+          <div id="copyTransferStatus" class="status-message" role="status" aria-live="polite"></div>
+        </article>
+      </section>
+    </section>
+
+    <section id="section-fase-grupos" class="app-section form-section" hidden>
+      <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
+      <section class="hero">
+        <p class="eyebrow">🏆 Polla Mundialera · E01</p>
+        <h1>Formulario de pronósticos</h1>
+        <p>Completa tus datos, elige tu campeón y responde cada partido. El envío quedará listo para conectar con Google Sheets mediante Apps Script.</p>
+      </section>
+
+      <form id="predictionForm" class="form-panel">
+        <section class="field-grid" aria-label="Datos del participante">
+          <div class="field participant-field">
+            <label for="nombre">Nombre del participante (con este nombre se te va a ver en la tabla de posiciones)</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
+          </div>
+          <div class="field champion-field">
+            <span class="section-title">Campeón del Mundo</span>
+            <div class="champion-grid" role="radiogroup" aria-label="Campeón del Mundo">
+              
             <label class="option-pill champion-pill" for="campeon-0">
               <input id="campeon-0" type="radio" name="campeon" value="Inglaterra" required>
               <span><img class="flag-img" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f3f4-e0067-e0062-e0065-e006e-e0067-e007f.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" draggable="false" onerror="this.remove()"><span>Inglaterra</span></span>
@@ -464,22 +798,22 @@
               <input id="campeon-7" type="radio" name="campeon" value="Otro" required>
               <span><span>Otro</span></span>
             </label>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="matches-head" aria-label="Progreso">
-        <div class="progress-row">
-          <span id="progressText">Respondidas 0 de 25</span>
-          <span>Fase de Grupos</span>
-        </div>
-        <div class="progress-track" aria-hidden="true">
-          <div id="progressBar" class="progress-bar"></div>
-        </div>
-      </section>
+        <section class="matches-head" aria-label="Progreso">
+          <div class="progress-row">
+            <span id="progressText">Respondidas 0 de 25</span>
+            <span>Fase de Grupos</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+        </section>
 
-      <section class="matches" aria-label="Partidos">
-        
+        <section class="matches" aria-label="Partidos">
+          
         <article class="match-card" data-match-card data-partido="1" data-equipo-a="México" data-equipo-b="Sudáfrica">
           <div class="match-topline">
             <span>Partido 1</span>
@@ -1154,22 +1488,91 @@
             </label>
           </div>
         </article>
-      </section>
-    </form>
-  </main>
+        </section>
+      </form>
 
-  <div class="submit-bar">
-    <div class="submit-inner">
-      <button id="submitButton" class="submit-button" type="submit" form="predictionForm" disabled>Enviar respuestas</button>
-      <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
-    </div>
-  </div>
+      <div class="submit-bar">
+        <div class="submit-inner">
+          <button id="submitButton" class="submit-button" type="submit" form="predictionForm" disabled>Enviar respuestas</button>
+          <div id="statusMessage" class="status-message" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-dieciseisavos" class="app-section" hidden>
+      <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
+      <div class="unavailable-card">
+        <h2>Formulario dieciseisavos</h2>
+        <p>Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
+      </div>
+    </section>
+
+    <section id="section-octavos" class="app-section" hidden>
+      <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
+      <div class="unavailable-card">
+        <h2>Formulario octavos</h2>
+        <p>Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
+      </div>
+    </section>
+
+    <section id="section-cuartos" class="app-section" hidden>
+      <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
+      <div class="unavailable-card">
+        <h2>Formulario cuartos</h2>
+        <p>Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
+      </div>
+    </section>
+
+    <section id="section-semifinales" class="app-section" hidden>
+      <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
+      <div class="unavailable-card">
+        <h2>Formulario semifinales</h2>
+        <p>Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
+      </div>
+    </section>
+
+    <section id="section-final" class="app-section" hidden>
+      <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
+      <div class="unavailable-card">
+        <h2>Formulario final</h2>
+        <p>Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
+      </div>
+    </section>
+  </main>
 
   <script>
     const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybBXFJiatIXBqeXPSle-3FovQtZ074LWgiI-8IU4oCvGi-_p0IOfZ3im8equmiyFJo/exec";
     const ETAPA = "E01";
-    const FORM_METADATA = {"etapa": "E01", "hoja": "Fase de Grupos", "generado": "2026-05-17T17:04:26", "total_partidos": 25};
+    const FORM_METADATA = {"etapa": "E01", "hoja": "Fase de Grupos", "generado": "2026-05-17T21:49:39", "total_partidos": 25};
     const PARTIDOS = [{"numero": 1, "equipo_a": "México", "equipo_b": "Sudáfrica", "bandera_a": "🇲🇽", "bandera_b": "🇿🇦", "opciones": ["Gana México", "Empate", "Gana Sudáfrica"]}, {"numero": 2, "equipo_a": "Estados Unidos", "equipo_b": "Paraguay", "bandera_a": "🇺🇸", "bandera_b": "🇵🇾", "opciones": ["Gana Estados Unidos", "Empate", "Gana Paraguay"]}, {"numero": 3, "equipo_a": "Brasil", "equipo_b": "Marruecos", "bandera_a": "🇧🇷", "bandera_b": "🇲🇦", "opciones": ["Gana Brasil", "Empate", "Gana Marruecos"]}, {"numero": 4, "equipo_a": "Australia", "equipo_b": "Turquía", "bandera_a": "🇦🇺", "bandera_b": "🇹🇷", "opciones": ["Gana Australia", "Empate", "Gana Turquía"]}, {"numero": 5, "equipo_a": "Holanda", "equipo_b": "Japón", "bandera_a": "🇳🇱", "bandera_b": "🇯🇵", "opciones": ["Gana Holanda", "Empate", "Gana Japón"]}, {"numero": 6, "equipo_a": "Bélgica", "equipo_b": "Egipto", "bandera_a": "🇧🇪", "bandera_b": "🇪🇬", "opciones": ["Gana Bélgica", "Empate", "Gana Egipto"]}, {"numero": 7, "equipo_a": "Francia", "equipo_b": "Senegal", "bandera_a": "🇫🇷", "bandera_b": "🇸🇳", "opciones": ["Gana Francia", "Empate", "Gana Senegal"]}, {"numero": 8, "equipo_a": "Argentina", "equipo_b": "Argelia", "bandera_a": "🇦🇷", "bandera_b": "🇩🇿", "opciones": ["Gana Argentina", "Empate", "Gana Argelia"]}, {"numero": 9, "equipo_a": "Inglaterra", "equipo_b": "Croacia", "bandera_a": "🏴", "bandera_b": "🇭🇷", "opciones": ["Gana Inglaterra", "Empate", "Gana Croacia"]}, {"numero": 10, "equipo_a": "México", "equipo_b": "Corea", "bandera_a": "🇲🇽", "bandera_b": "🇰🇷", "opciones": ["Gana México", "Empate", "Gana Corea"]}, {"numero": 11, "equipo_a": "Estados Unidos", "equipo_b": "Australia", "bandera_a": "🇺🇸", "bandera_b": "🇦🇺", "opciones": ["Gana Estados Unidos", "Empate", "Gana Australia"]}, {"numero": 12, "equipo_a": "Holanda", "equipo_b": "Suecia", "bandera_a": "🇳🇱", "bandera_b": "🇸🇪", "opciones": ["Gana Holanda", "Empate", "Gana Suecia"]}, {"numero": 13, "equipo_a": "Bélgica", "equipo_b": "Irán", "bandera_a": "🇧🇪", "bandera_b": "🇮🇷", "opciones": ["Gana Bélgica", "Empate", "Gana Irán"]}, {"numero": 14, "equipo_a": "Argentina", "equipo_b": "Austria", "bandera_a": "🇦🇷", "bandera_b": "🇦🇹", "opciones": ["Gana Argentina", "Empate", "Gana Austria"]}, {"numero": 15, "equipo_a": "Noruega", "equipo_b": "Senegal", "bandera_a": "🇳🇴", "bandera_b": "🇸🇳", "opciones": ["Gana Noruega", "Empate", "Gana Senegal"]}, {"numero": 16, "equipo_a": "Suiza", "equipo_b": "Canadá", "bandera_a": "🇨🇭", "bandera_b": "🇨🇦", "opciones": ["Gana Suiza", "Empate", "Gana Canadá"]}, {"numero": 17, "equipo_a": "Ecuador", "equipo_b": "Alemania", "bandera_a": "🇪🇨", "bandera_b": "🇩🇪", "opciones": ["Gana Ecuador", "Empate", "Gana Alemania"]}, {"numero": 18, "equipo_a": "Japón", "equipo_b": "Suecia", "bandera_a": "🇯🇵", "bandera_b": "🇸🇪", "opciones": ["Gana Japón", "Empate", "Gana Suecia"]}, {"numero": 19, "equipo_a": "Turquía", "equipo_b": "Estados Unidos", "bandera_a": "🇹🇷", "bandera_b": "🇺🇸", "opciones": ["Gana Turquía", "Empate", "Gana Estados Unidos"]}, {"numero": 20, "equipo_a": "Paraguay", "equipo_b": "Australia", "bandera_a": "🇵🇾", "bandera_b": "🇦🇺", "opciones": ["Gana Paraguay", "Empate", "Gana Australia"]}, {"numero": 21, "equipo_a": "Uruguay", "equipo_b": "España", "bandera_a": "🇺🇾", "bandera_b": "🇪🇸", "opciones": ["Gana Uruguay", "Empate", "Gana España"]}, {"numero": 22, "equipo_a": "Noruega", "equipo_b": "Francia", "bandera_a": "🇳🇴", "bandera_b": "🇫🇷", "opciones": ["Gana Noruega", "Empate", "Gana Francia"]}, {"numero": 23, "equipo_a": "Egipto", "equipo_b": "Irán", "bandera_a": "🇪🇬", "bandera_b": "🇮🇷", "opciones": ["Gana Egipto", "Empate", "Gana Irán"]}, {"numero": 24, "equipo_a": "Argelia", "equipo_b": "Austria", "bandera_a": "🇩🇿", "bandera_b": "🇦🇹", "opciones": ["Gana Argelia", "Empate", "Gana Austria"]}, {"numero": 25, "equipo_a": "Colombia", "equipo_b": "Portugal", "bandera_a": "🇨🇴", "bandera_b": "🇵🇹", "opciones": ["Gana Colombia", "Empate", "Gana Portugal"]}];
+    const TRANSFER_TEXT = `Eugenio Irarrazaval
+20829077-0
+Banco Santander / Cuenta Vista
+0-011-00-46130-3
+eirarrazavalr@gmail.com`;
+
+    const sections = Array.from(document.querySelectorAll(".app-section"));
+
+    function showSection(sectionId) {
+      const target = document.querySelector(`#section-${sectionId}`);
+      if (!target) {
+        return;
+      }
+
+      sections.forEach((section) => {
+        section.hidden = section !== target;
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    window.showSection = showSection;
+
+    document.querySelectorAll("[data-section-target]").forEach((button) => {
+      button.addEventListener("click", () => {
+        showSection(button.dataset.sectionTarget);
+      });
+    });
 
     const form = document.querySelector("#predictionForm");
     const nombreInput = document.querySelector("#nombre");
@@ -1177,12 +1580,48 @@
     const progressText = document.querySelector("#progressText");
     const progressBar = document.querySelector("#progressBar");
     const statusMessage = document.querySelector("#statusMessage");
+    const copyTransferButton = document.querySelector("#copyTransferButton");
+    const copyTransferStatus = document.querySelector("#copyTransferStatus");
     const matchCards = Array.from(document.querySelectorAll("[data-match-card]"));
 
     function setStatus(message, type = "") {
       statusMessage.textContent = message;
       statusMessage.className = `status-message ${type}`.trim();
     }
+
+    function setCopyTransferStatus(message, type = "ok") {
+      copyTransferStatus.textContent = message;
+      copyTransferStatus.className = `status-message ${type}`.trim();
+    }
+
+    function copyWithFallback(text) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    }
+
+    async function copyTransferData() {
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(TRANSFER_TEXT);
+        } else {
+          copyWithFallback(TRANSFER_TEXT);
+        }
+
+        setCopyTransferStatus("Datos copiados al portapapeles.", "ok");
+      } catch (error) {
+        console.error(error);
+        setCopyTransferStatus("No se pudieron copiar automáticamente. Intenta copiar los datos manualmente.", "error");
+      }
+    }
+
+    copyTransferButton.addEventListener("click", copyTransferData);
 
     function respuestasCompletas() {
       return matchCards.filter((card) => card.querySelector("input[type='radio']:checked")).length;

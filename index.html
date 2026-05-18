@@ -419,6 +419,13 @@
       line-height: 0.92;
     }
 
+    .section-title-main {
+      max-width: none;
+      font-size: clamp(2.45rem, 11vw, 5.4rem);
+      line-height: 0.95;
+      text-align: center;
+    }
+
     .menu-card {
       width: 100%;
       min-height: 68px;
@@ -744,9 +751,7 @@
     <section id="section-fase-grupos" class="app-section form-section" hidden>
       <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
       <section class="hero">
-        <p class="eyebrow">🏆 Polla Mundialera · E01</p>
-        <h1>Formulario de pronósticos</h1>
-        <p>Completa tus datos, elige tu campeón y responde cada partido. El envío quedará listo para conectar con Google Sheets mediante Apps Script.</p>
+        <h1 class="section-title-main">🏆 Polla Mundialera Etapa 1 (Fase de grupos)</h1>
       </section>
 
       <form id="predictionForm" class="form-panel">
@@ -1543,7 +1548,7 @@
   <script>
     const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybBXFJiatIXBqeXPSle-3FovQtZ074LWgiI-8IU4oCvGi-_p0IOfZ3im8equmiyFJo/exec";
     const ETAPA = "E01";
-    const FORM_METADATA = {"etapa": "E01", "hoja": "Fase de Grupos", "generado": "2026-05-17T21:49:39", "total_partidos": 25};
+    const FORM_METADATA = {"etapa": "E01", "hoja": "Fase de Grupos", "generado": "2026-05-17T21:53:40", "total_partidos": 25};
     const PARTIDOS = [{"numero": 1, "equipo_a": "México", "equipo_b": "Sudáfrica", "bandera_a": "🇲🇽", "bandera_b": "🇿🇦", "opciones": ["Gana México", "Empate", "Gana Sudáfrica"]}, {"numero": 2, "equipo_a": "Estados Unidos", "equipo_b": "Paraguay", "bandera_a": "🇺🇸", "bandera_b": "🇵🇾", "opciones": ["Gana Estados Unidos", "Empate", "Gana Paraguay"]}, {"numero": 3, "equipo_a": "Brasil", "equipo_b": "Marruecos", "bandera_a": "🇧🇷", "bandera_b": "🇲🇦", "opciones": ["Gana Brasil", "Empate", "Gana Marruecos"]}, {"numero": 4, "equipo_a": "Australia", "equipo_b": "Turquía", "bandera_a": "🇦🇺", "bandera_b": "🇹🇷", "opciones": ["Gana Australia", "Empate", "Gana Turquía"]}, {"numero": 5, "equipo_a": "Holanda", "equipo_b": "Japón", "bandera_a": "🇳🇱", "bandera_b": "🇯🇵", "opciones": ["Gana Holanda", "Empate", "Gana Japón"]}, {"numero": 6, "equipo_a": "Bélgica", "equipo_b": "Egipto", "bandera_a": "🇧🇪", "bandera_b": "🇪🇬", "opciones": ["Gana Bélgica", "Empate", "Gana Egipto"]}, {"numero": 7, "equipo_a": "Francia", "equipo_b": "Senegal", "bandera_a": "🇫🇷", "bandera_b": "🇸🇳", "opciones": ["Gana Francia", "Empate", "Gana Senegal"]}, {"numero": 8, "equipo_a": "Argentina", "equipo_b": "Argelia", "bandera_a": "🇦🇷", "bandera_b": "🇩🇿", "opciones": ["Gana Argentina", "Empate", "Gana Argelia"]}, {"numero": 9, "equipo_a": "Inglaterra", "equipo_b": "Croacia", "bandera_a": "🏴", "bandera_b": "🇭🇷", "opciones": ["Gana Inglaterra", "Empate", "Gana Croacia"]}, {"numero": 10, "equipo_a": "México", "equipo_b": "Corea", "bandera_a": "🇲🇽", "bandera_b": "🇰🇷", "opciones": ["Gana México", "Empate", "Gana Corea"]}, {"numero": 11, "equipo_a": "Estados Unidos", "equipo_b": "Australia", "bandera_a": "🇺🇸", "bandera_b": "🇦🇺", "opciones": ["Gana Estados Unidos", "Empate", "Gana Australia"]}, {"numero": 12, "equipo_a": "Holanda", "equipo_b": "Suecia", "bandera_a": "🇳🇱", "bandera_b": "🇸🇪", "opciones": ["Gana Holanda", "Empate", "Gana Suecia"]}, {"numero": 13, "equipo_a": "Bélgica", "equipo_b": "Irán", "bandera_a": "🇧🇪", "bandera_b": "🇮🇷", "opciones": ["Gana Bélgica", "Empate", "Gana Irán"]}, {"numero": 14, "equipo_a": "Argentina", "equipo_b": "Austria", "bandera_a": "🇦🇷", "bandera_b": "🇦🇹", "opciones": ["Gana Argentina", "Empate", "Gana Austria"]}, {"numero": 15, "equipo_a": "Noruega", "equipo_b": "Senegal", "bandera_a": "🇳🇴", "bandera_b": "🇸🇳", "opciones": ["Gana Noruega", "Empate", "Gana Senegal"]}, {"numero": 16, "equipo_a": "Suiza", "equipo_b": "Canadá", "bandera_a": "🇨🇭", "bandera_b": "🇨🇦", "opciones": ["Gana Suiza", "Empate", "Gana Canadá"]}, {"numero": 17, "equipo_a": "Ecuador", "equipo_b": "Alemania", "bandera_a": "🇪🇨", "bandera_b": "🇩🇪", "opciones": ["Gana Ecuador", "Empate", "Gana Alemania"]}, {"numero": 18, "equipo_a": "Japón", "equipo_b": "Suecia", "bandera_a": "🇯🇵", "bandera_b": "🇸🇪", "opciones": ["Gana Japón", "Empate", "Gana Suecia"]}, {"numero": 19, "equipo_a": "Turquía", "equipo_b": "Estados Unidos", "bandera_a": "🇹🇷", "bandera_b": "🇺🇸", "opciones": ["Gana Turquía", "Empate", "Gana Estados Unidos"]}, {"numero": 20, "equipo_a": "Paraguay", "equipo_b": "Australia", "bandera_a": "🇵🇾", "bandera_b": "🇦🇺", "opciones": ["Gana Paraguay", "Empate", "Gana Australia"]}, {"numero": 21, "equipo_a": "Uruguay", "equipo_b": "España", "bandera_a": "🇺🇾", "bandera_b": "🇪🇸", "opciones": ["Gana Uruguay", "Empate", "Gana España"]}, {"numero": 22, "equipo_a": "Noruega", "equipo_b": "Francia", "bandera_a": "🇳🇴", "bandera_b": "🇫🇷", "opciones": ["Gana Noruega", "Empate", "Gana Francia"]}, {"numero": 23, "equipo_a": "Egipto", "equipo_b": "Irán", "bandera_a": "🇪🇬", "bandera_b": "🇮🇷", "opciones": ["Gana Egipto", "Empate", "Gana Irán"]}, {"numero": 24, "equipo_a": "Argelia", "equipo_b": "Austria", "bandera_a": "🇩🇿", "bandera_b": "🇦🇹", "opciones": ["Gana Argelia", "Empate", "Gana Austria"]}, {"numero": 25, "equipo_a": "Colombia", "equipo_b": "Portugal", "bandera_a": "🇨🇴", "bandera_b": "🇵🇹", "opciones": ["Gana Colombia", "Empate", "Gana Portugal"]}];
     const TRANSFER_TEXT = `Eugenio Irarrazaval
 20829077-0

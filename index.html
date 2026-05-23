@@ -116,6 +116,13 @@
       font-weight: 800;
     }
 
+    .field-help {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.4;
+    }
+
     .field input,
     .field select {
       width: 100%;
@@ -377,6 +384,41 @@
       color: var(--danger);
     }
 
+    .deadline-notice {
+      margin: 8px 0 14px;
+      border: 1px solid rgba(24, 211, 162, 0.2);
+      border-radius: 18px;
+      background: rgba(24, 211, 162, 0.08);
+      color: #dfe6f5;
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .deadline-notice.error {
+      border-color: rgba(255, 107, 107, 0.34);
+      background: rgba(255, 107, 107, 0.1);
+      color: #ffc6c6;
+    }
+
+    .form-panel.is-locked input,
+    .form-panel.is-locked select,
+    .form-panel.is-locked textarea {
+      cursor: not-allowed;
+      opacity: 0.72;
+    }
+
+    .form-panel.is-locked .option-pill {
+      cursor: not-allowed;
+      opacity: 0.58;
+    }
+
+    .form-panel.is-locked .option-pill input {
+      opacity: 0;
+    }
+
     .app-section[hidden] {
       display: none !important;
     }
@@ -415,13 +457,13 @@
 
     .menu-title {
       max-width: none;
-      font-size: clamp(3rem, 14vw, 6.6rem);
+      font-size: clamp(2.4rem, 11.2vw, 5.3rem);
       line-height: 0.92;
     }
 
     .section-title-main {
       max-width: none;
-      font-size: clamp(2.45rem, 11vw, 5.4rem);
+      font-size: clamp(2rem, 8.8vw, 4.3rem);
       line-height: 0.95;
       text-align: center;
     }
@@ -646,6 +688,9 @@
         <button class="menu-card" type="button" data-section-target="bases">
           <strong>Bases de la polla</strong>
         </button>
+        <button class="menu-card" type="button" onclick="window.location.href='https://eugenioirarrazaval2001.github.io/polla-mundial/familia/index.html'">
+          <strong>Tabla de posiciones</strong>
+        </button>
         <button class="menu-card" type="button" data-section-target="fase-grupos">
           <strong>Formulario fase de grupos</strong>
         </button>
@@ -681,6 +726,7 @@
           <ul>
             <li>La polla se juega respondiendo en cada ronda el formulario web.</li>
             <li>Al terminarse una ronda se libera el formulario de la siguiente, el cual debe ser respondido antes del comienzo de la nueva ronda.</li>
+            <li>Se puede responder cada formulario todas las veces que se quiera, por si quieres cambiar tus respuestas.</li>
             <li>Se consideran 25 partidos seleccionados de la fase de grupo más las eliminatorias completas.</li>
             <li>El valor de inscripción es de $3000 por participante. Pueden participar todos los que quieran por familia.</li>
           </ul>
@@ -688,7 +734,7 @@
 
         <article class="rules-block">
           <h2>2. Plazos</h2>
-          <p>Cada cuestionario debe responderse antes de que comience el primer partido de la ronda siguiente.</p>
+          <p>Una hora antes del comienzo del primer partido de cada fase, el formulario respectivo deja de aceptar respuestas.</p>
           <p>El pago de inscripción es hasta el inicio del primer partido de la fase de grupos.</p>
         </article>
 
@@ -753,12 +799,14 @@
       <section class="hero">
         <h1 class="section-title-main">🏆 Polla Mundialera Etapa 1 (Fase de grupos)</h1>
       </section>
+      <div id="faseDeadlineNotice" class="deadline-notice" role="status" aria-live="polite"></div>
 
       <form id="predictionForm" class="form-panel">
         <section class="field-grid" aria-label="Datos del participante">
           <div class="field participant-field">
             <label for="nombre">Nombre del participante (con este nombre se te va a ver en la tabla de posiciones)</label>
             <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
+            <p class="field-help">Si ya respondiste antes, escribe exactamente el mismo nombre para no duplicar tu participación.</p>
           </div>
           <div class="field champion-field">
             <span class="section-title">Campeón del Mundo</span>
@@ -1508,7 +1556,7 @@
       <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
       <div class="unavailable-card">
         <h2>Formulario dieciseisavos</h2>
-        <p>Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
+        <p data-unavailable-message="dieciseisavos">Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
       </div>
     </section>
 
@@ -1516,7 +1564,7 @@
       <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
       <div class="unavailable-card">
         <h2>Formulario octavos</h2>
-        <p>Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
+        <p data-unavailable-message="octavos">Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
       </div>
     </section>
 
@@ -1524,7 +1572,7 @@
       <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
       <div class="unavailable-card">
         <h2>Formulario cuartos</h2>
-        <p>Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
+        <p data-unavailable-message="cuartos">Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
       </div>
     </section>
 
@@ -1532,7 +1580,7 @@
       <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
       <div class="unavailable-card">
         <h2>Formulario semifinales</h2>
-        <p>Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
+        <p data-unavailable-message="semifinales">Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
       </div>
     </section>
 
@@ -1540,7 +1588,7 @@
       <button class="nav-back" type="button" data-section-target="menu">Volver al menú</button>
       <div class="unavailable-card">
         <h2>Formulario final</h2>
-        <p>Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
+        <p data-unavailable-message="final">Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.</p>
       </div>
     </section>
   </main>
@@ -1548,18 +1596,84 @@
   <script>
     const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybBXFJiatIXBqeXPSle-3FovQtZ074LWgiI-8IU4oCvGi-_p0IOfZ3im8equmiyFJo/exec";
     const ETAPA = "E01";
-    const FORM_METADATA = {"etapa": "E01", "hoja": "Fase de Grupos", "generado": "2026-05-17T21:53:40", "total_partidos": 25};
+    const FORM_METADATA = {"etapa": "E01", "hoja": "Fase de Grupos", "generado": "2026-05-22T22:45:32", "total_partidos": 25};
     const PARTIDOS = [{"numero": 1, "equipo_a": "México", "equipo_b": "Sudáfrica", "bandera_a": "🇲🇽", "bandera_b": "🇿🇦", "opciones": ["Gana México", "Empate", "Gana Sudáfrica"]}, {"numero": 2, "equipo_a": "Estados Unidos", "equipo_b": "Paraguay", "bandera_a": "🇺🇸", "bandera_b": "🇵🇾", "opciones": ["Gana Estados Unidos", "Empate", "Gana Paraguay"]}, {"numero": 3, "equipo_a": "Brasil", "equipo_b": "Marruecos", "bandera_a": "🇧🇷", "bandera_b": "🇲🇦", "opciones": ["Gana Brasil", "Empate", "Gana Marruecos"]}, {"numero": 4, "equipo_a": "Australia", "equipo_b": "Turquía", "bandera_a": "🇦🇺", "bandera_b": "🇹🇷", "opciones": ["Gana Australia", "Empate", "Gana Turquía"]}, {"numero": 5, "equipo_a": "Holanda", "equipo_b": "Japón", "bandera_a": "🇳🇱", "bandera_b": "🇯🇵", "opciones": ["Gana Holanda", "Empate", "Gana Japón"]}, {"numero": 6, "equipo_a": "Bélgica", "equipo_b": "Egipto", "bandera_a": "🇧🇪", "bandera_b": "🇪🇬", "opciones": ["Gana Bélgica", "Empate", "Gana Egipto"]}, {"numero": 7, "equipo_a": "Francia", "equipo_b": "Senegal", "bandera_a": "🇫🇷", "bandera_b": "🇸🇳", "opciones": ["Gana Francia", "Empate", "Gana Senegal"]}, {"numero": 8, "equipo_a": "Argentina", "equipo_b": "Argelia", "bandera_a": "🇦🇷", "bandera_b": "🇩🇿", "opciones": ["Gana Argentina", "Empate", "Gana Argelia"]}, {"numero": 9, "equipo_a": "Inglaterra", "equipo_b": "Croacia", "bandera_a": "🏴", "bandera_b": "🇭🇷", "opciones": ["Gana Inglaterra", "Empate", "Gana Croacia"]}, {"numero": 10, "equipo_a": "México", "equipo_b": "Corea", "bandera_a": "🇲🇽", "bandera_b": "🇰🇷", "opciones": ["Gana México", "Empate", "Gana Corea"]}, {"numero": 11, "equipo_a": "Estados Unidos", "equipo_b": "Australia", "bandera_a": "🇺🇸", "bandera_b": "🇦🇺", "opciones": ["Gana Estados Unidos", "Empate", "Gana Australia"]}, {"numero": 12, "equipo_a": "Holanda", "equipo_b": "Suecia", "bandera_a": "🇳🇱", "bandera_b": "🇸🇪", "opciones": ["Gana Holanda", "Empate", "Gana Suecia"]}, {"numero": 13, "equipo_a": "Bélgica", "equipo_b": "Irán", "bandera_a": "🇧🇪", "bandera_b": "🇮🇷", "opciones": ["Gana Bélgica", "Empate", "Gana Irán"]}, {"numero": 14, "equipo_a": "Argentina", "equipo_b": "Austria", "bandera_a": "🇦🇷", "bandera_b": "🇦🇹", "opciones": ["Gana Argentina", "Empate", "Gana Austria"]}, {"numero": 15, "equipo_a": "Noruega", "equipo_b": "Senegal", "bandera_a": "🇳🇴", "bandera_b": "🇸🇳", "opciones": ["Gana Noruega", "Empate", "Gana Senegal"]}, {"numero": 16, "equipo_a": "Suiza", "equipo_b": "Canadá", "bandera_a": "🇨🇭", "bandera_b": "🇨🇦", "opciones": ["Gana Suiza", "Empate", "Gana Canadá"]}, {"numero": 17, "equipo_a": "Ecuador", "equipo_b": "Alemania", "bandera_a": "🇪🇨", "bandera_b": "🇩🇪", "opciones": ["Gana Ecuador", "Empate", "Gana Alemania"]}, {"numero": 18, "equipo_a": "Japón", "equipo_b": "Suecia", "bandera_a": "🇯🇵", "bandera_b": "🇸🇪", "opciones": ["Gana Japón", "Empate", "Gana Suecia"]}, {"numero": 19, "equipo_a": "Turquía", "equipo_b": "Estados Unidos", "bandera_a": "🇹🇷", "bandera_b": "🇺🇸", "opciones": ["Gana Turquía", "Empate", "Gana Estados Unidos"]}, {"numero": 20, "equipo_a": "Paraguay", "equipo_b": "Australia", "bandera_a": "🇵🇾", "bandera_b": "🇦🇺", "opciones": ["Gana Paraguay", "Empate", "Gana Australia"]}, {"numero": 21, "equipo_a": "Uruguay", "equipo_b": "España", "bandera_a": "🇺🇾", "bandera_b": "🇪🇸", "opciones": ["Gana Uruguay", "Empate", "Gana España"]}, {"numero": 22, "equipo_a": "Noruega", "equipo_b": "Francia", "bandera_a": "🇳🇴", "bandera_b": "🇫🇷", "opciones": ["Gana Noruega", "Empate", "Gana Francia"]}, {"numero": 23, "equipo_a": "Egipto", "equipo_b": "Irán", "bandera_a": "🇪🇬", "bandera_b": "🇮🇷", "opciones": ["Gana Egipto", "Empate", "Gana Irán"]}, {"numero": 24, "equipo_a": "Argelia", "equipo_b": "Austria", "bandera_a": "🇩🇿", "bandera_b": "🇦🇹", "opciones": ["Gana Argelia", "Empate", "Gana Austria"]}, {"numero": 25, "equipo_a": "Colombia", "equipo_b": "Portugal", "bandera_a": "🇨🇴", "bandera_b": "🇵🇹", "opciones": ["Gana Colombia", "Empate", "Gana Portugal"]}];
+    const DEADLINES = {"fase-grupos": {"etapa_id": "E01", "section_id": "fase-grupos", "nombre_fase": "Fase de grupos", "kickoff_chile": "2026-06-11 15:00", "deadline_chile": "2026-06-11 14:00", "deadline_iso": "2026-06-11T14:00:00-04:00", "deadline_label": "11 de junio de 2026, 14:00", "habilitado": true, "mensaje_cerrado": "Este formulario ya está cerrado. El plazo para responder terminó el 11 de junio de 2026 a las 14:00 hrs de Chile."}, "dieciseisavos": {"etapa_id": "E02", "section_id": "dieciseisavos", "nombre_fase": "Dieciseisavos", "kickoff_chile": "2026-06-28 15:00", "deadline_chile": "2026-06-28 14:00", "deadline_iso": "2026-06-28T14:00:00-04:00", "deadline_label": "28 de junio de 2026, 14:00", "habilitado": false, "mensaje_cerrado": "Este formulario todavía no se encuentra disponible o está fuera de plazo."}, "octavos": {"etapa_id": "E03", "section_id": "octavos", "nombre_fase": "Octavos", "kickoff_chile": "2026-07-04 13:00", "deadline_chile": "2026-07-04 12:00", "deadline_iso": "2026-07-04T12:00:00-04:00", "deadline_label": "4 de julio de 2026, 12:00", "habilitado": false, "mensaje_cerrado": "Este formulario todavía no se encuentra disponible o está fuera de plazo."}, "cuartos": {"etapa_id": "E04", "section_id": "cuartos", "nombre_fase": "Cuartos", "kickoff_chile": "2026-07-09 16:00", "deadline_chile": "2026-07-09 15:00", "deadline_iso": "2026-07-09T15:00:00-04:00", "deadline_label": "9 de julio de 2026, 15:00", "habilitado": false, "mensaje_cerrado": "Este formulario todavía no se encuentra disponible o está fuera de plazo."}, "semifinales": {"etapa_id": "E05", "section_id": "semifinales", "nombre_fase": "Semifinales", "kickoff_chile": "2026-07-14 15:00", "deadline_chile": "2026-07-14 14:00", "deadline_iso": "2026-07-14T14:00:00-04:00", "deadline_label": "14 de julio de 2026, 14:00", "habilitado": false, "mensaje_cerrado": "Este formulario todavía no se encuentra disponible o está fuera de plazo."}, "final": {"etapa_id": "E06", "section_id": "final", "nombre_fase": "Final", "kickoff_chile": "2026-07-19 15:00", "deadline_chile": "2026-07-19 14:00", "deadline_iso": "2026-07-19T14:00:00-04:00", "deadline_label": "19 de julio de 2026, 14:00", "habilitado": false, "mensaje_cerrado": "Este formulario todavía no se encuentra disponible o está fuera de plazo."}};
     const TRANSFER_TEXT = `Eugenio Irarrazaval
 20829077-0
 Banco Santander / Cuenta Vista
 0-011-00-46130-3
 eirarrazavalr@gmail.com`;
+    const UNAVAILABLE_MESSAGE = "Este formulario todavía no se encuentra disponible. Se habilitará cuando estén definidos los partidos de esta ronda.";
+    const FUTURE_SECTIONS = ["dieciseisavos", "octavos", "cuartos", "semifinales", "final"];
 
     const sections = Array.from(document.querySelectorAll(".app-section"));
+    const VALID_SECTIONS = new Set([
+      "menu",
+      "bases",
+      "fase-grupos",
+      "dieciseisavos",
+      "octavos",
+      "cuartos",
+      "semifinales",
+      "final"
+    ]);
 
-    function showSection(sectionId) {
-      const target = document.querySelector(`#section-${sectionId}`);
+    function normalizeSectionId(sectionId) {
+      return VALID_SECTIONS.has(sectionId) ? sectionId : "menu";
+    }
+
+    function getDeadline(sectionId) {
+      return DEADLINES[sectionId] || null;
+    }
+
+    function isSectionEnabled(sectionId) {
+      const deadline = getDeadline(sectionId);
+      if (!deadline) return true;
+      return Boolean(deadline.habilitado);
+    }
+
+    function isSectionClosed(sectionId) {
+      const deadline = getDeadline(sectionId);
+      if (!deadline || !deadline.deadline_iso) return false;
+      return new Date() >= new Date(deadline.deadline_iso);
+    }
+
+    function getDeadlineMessage(sectionId) {
+      const deadline = getDeadline(sectionId);
+      if (!deadline) return "";
+      return deadline.mensaje_cerrado || "Formulario fuera de plazo.";
+    }
+
+    function getDeadlineDisplay(sectionId) {
+      const deadline = getDeadline(sectionId);
+      if (!deadline || !deadline.deadline_iso) return "";
+
+      if (deadline.deadline_label) {
+        return deadline.deadline_label;
+      }
+
+      const fecha = new Date(deadline.deadline_iso);
+      if (Number.isNaN(fecha.getTime())) return "";
+
+      return new Intl.DateTimeFormat("es-CL", {
+        timeZone: "America/Santiago",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }).format(fecha);
+    }
+
+    function sectionUrl(sectionId) {
+      return `${window.location.pathname}${window.location.search}#${sectionId}`;
+    }
+
+    function showSection(sectionId, options = {}) {
+      const normalizedSectionId = normalizeSectionId(sectionId);
+      const target = document.querySelector(`#section-${normalizedSectionId}`);
       if (!target) {
         return;
       }
@@ -1568,7 +1682,15 @@ eirarrazavalr@gmail.com`;
         section.hidden = section !== target;
       });
 
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (options.updateHistory !== false) {
+        window.history.pushState(
+          { sectionId: normalizedSectionId },
+          "",
+          sectionUrl(normalizedSectionId)
+        );
+      }
+
+      window.scrollTo({ top: 0, behavior: options.instantScroll ? "auto" : "smooth" });
     }
 
     window.showSection = showSection;
@@ -1579,12 +1701,28 @@ eirarrazavalr@gmail.com`;
       });
     });
 
+    const initialSection = normalizeSectionId(window.location.hash.replace("#", "") || "menu");
+    window.history.replaceState(
+      { sectionId: initialSection },
+      "",
+      sectionUrl(initialSection)
+    );
+    showSection(initialSection, { updateHistory: false, instantScroll: true });
+
+    window.addEventListener("popstate", (event) => {
+      const sectionFromState = event.state && event.state.sectionId;
+      const sectionFromHash = window.location.hash.replace("#", "");
+      const targetSection = normalizeSectionId(sectionFromState || sectionFromHash || "menu");
+      showSection(targetSection, { updateHistory: false, instantScroll: true });
+    });
+
     const form = document.querySelector("#predictionForm");
     const nombreInput = document.querySelector("#nombre");
     const submitButton = document.querySelector("#submitButton");
     const progressText = document.querySelector("#progressText");
     const progressBar = document.querySelector("#progressBar");
     const statusMessage = document.querySelector("#statusMessage");
+    const faseDeadlineNotice = document.querySelector("#faseDeadlineNotice");
     const copyTransferButton = document.querySelector("#copyTransferButton");
     const copyTransferStatus = document.querySelector("#copyTransferStatus");
     const matchCards = Array.from(document.querySelectorAll("[data-match-card]"));
@@ -1592,6 +1730,49 @@ eirarrazavalr@gmail.com`;
     function setStatus(message, type = "") {
       statusMessage.textContent = message;
       statusMessage.className = `status-message ${type}`.trim();
+    }
+
+    function faseGruposBloqueada() {
+      return !isSectionEnabled("fase-grupos") || isSectionClosed("fase-grupos");
+    }
+
+    function setFormFieldsDisabled(disabled) {
+      form.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.disabled = disabled;
+      });
+    }
+
+    function updateFaseGruposDeadlineUi() {
+      const bloqueada = faseGruposBloqueada();
+      const deadlineDisplay = getDeadlineDisplay("fase-grupos");
+      let message = deadlineDisplay
+        ? `Plazo para responder: ${deadlineDisplay} hrs Chile.`
+        : "";
+
+      if (bloqueada) {
+        message = getDeadlineMessage("fase-grupos") || "Formulario fuera de plazo. Ya no es posible enviar respuestas.";
+        setStatus(message, "error");
+      }
+
+      faseDeadlineNotice.textContent = message;
+      faseDeadlineNotice.hidden = !message;
+      faseDeadlineNotice.classList.toggle("error", bloqueada);
+      form.classList.toggle("is-locked", bloqueada);
+      setFormFieldsDisabled(bloqueada);
+    }
+
+    function updateFutureSectionMessages() {
+      FUTURE_SECTIONS.forEach((sectionId) => {
+        const messageElement = document.querySelector(`[data-unavailable-message="${sectionId}"]`);
+        if (!messageElement) return;
+
+        if (isSectionEnabled(sectionId) && isSectionClosed(sectionId)) {
+          messageElement.textContent = getDeadlineMessage(sectionId) || "Formulario fuera de plazo.";
+          return;
+        }
+
+        messageElement.textContent = UNAVAILABLE_MESSAGE;
+      });
     }
 
     function setCopyTransferStatus(message, type = "ok") {
@@ -1644,10 +1825,33 @@ eirarrazavalr@gmail.com`;
       );
     }
 
+    function timestampChile() {
+      const parts = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "America/Santiago",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+        hourCycle: "h23"
+      }).formatToParts(new Date()).reduce((acc, part) => {
+        if (part.type !== "literal") {
+          acc[part.type] = part.value;
+        }
+        return acc;
+      }, {});
+
+      return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}:${parts.second}`;
+    }
+
     function actualizarEstado() {
+      updateFaseGruposDeadlineUi();
       const respondidas = respuestasCompletas();
       const total = matchCards.length;
       const porcentaje = total ? (respondidas / total) * 100 : 0;
+      const faseGruposBloqueadaAhora = faseGruposBloqueada();
 
       progressText.textContent = `Respondidas ${respondidas} de ${total}`;
       progressBar.style.width = `${porcentaje}%`;
@@ -1664,7 +1868,7 @@ eirarrazavalr@gmail.com`;
         state.textContent = checked ? "Respondido" : "Sin responder";
       });
 
-      submitButton.disabled = !(datosBaseCompletos() && respondidas === total);
+      submitButton.disabled = faseGruposBloqueadaAhora || !(datosBaseCompletos() && respondidas === total);
     }
 
     function construirPayload() {
@@ -1684,7 +1888,7 @@ eirarrazavalr@gmail.com`;
       }, {});
 
       return {
-        timestamp: new Date().toISOString(),
+        timestamp: timestampChile(),
         nombre: nombreInput.value.trim(),
         campeon: campeonSeleccionado(),
         etapa: ETAPA,
@@ -1696,6 +1900,16 @@ eirarrazavalr@gmail.com`;
 
     async function enviarFormulario(event) {
       event.preventDefault();
+
+      if (faseGruposBloqueada()) {
+        setStatus(
+          getDeadlineMessage("fase-grupos") || "Formulario fuera de plazo. Ya no es posible enviar respuestas.",
+          "error"
+        );
+        actualizarEstado();
+        return;
+      }
+
       actualizarEstado();
 
       if (submitButton.disabled) {
@@ -1744,6 +1958,7 @@ eirarrazavalr@gmail.com`;
     form.addEventListener("input", actualizarEstado);
     form.addEventListener("change", actualizarEstado);
     form.addEventListener("submit", enviarFormulario);
+    updateFutureSectionMessages();
     actualizarEstado();
   </script>
 </body>

@@ -143,6 +143,71 @@
       background: rgba(6, 13, 28, 0.9);
     }
 
+    .name-picker {
+      display: grid;
+      gap: 10px;
+    }
+
+    .name-search {
+      position: relative;
+    }
+
+    .name-search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .name-search input {
+      padding-left: 46px;
+    }
+
+    .name-options {
+      display: grid;
+      gap: 8px;
+      max-height: 260px;
+      overflow-y: auto;
+      padding: 4px;
+      border-radius: 18px;
+      background: rgba(5, 9, 21, 0.36);
+    }
+
+    .name-option {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 14px;
+      background: rgba(30, 42, 63, 0.78);
+      color: var(--text);
+      padding: 0 14px;
+      text-align: left;
+      font-weight: 800;
+      cursor: pointer;
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .name-option:active,
+    .name-option.is-selected {
+      border-color: rgba(24, 211, 162, 0.72);
+      box-shadow: 0 0 0 4px rgba(24, 211, 162, 0.13);
+      background: rgba(18, 211, 162, 0.18);
+    }
+
+    .name-option:disabled,
+    .name-option.is-used {
+      cursor: not-allowed;
+      opacity: 0.58;
+    }
+
+    .name-empty {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
     .matches-head {
       position: sticky;
       top: 0;
@@ -410,7 +475,8 @@
       opacity: 0.72;
     }
 
-    .form-panel.is-locked .option-pill {
+    .form-panel.is-locked .option-pill,
+    .form-panel.is-locked .name-option {
       cursor: not-allowed;
       opacity: 0.58;
     }
@@ -803,9 +869,18 @@
         <section class="field-grid" aria-label="Datos del participante">
 
           <div class="field participant-field">
-            <label for="nombre">Nombre del participante (con este nombre se te va a ver en la tabla de posiciones)</label>
-            <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
-            <p class="field-help">Si ya respondiste antes, escribe exactamente el mismo nombre para no duplicar tu participación.</p>
+            <label for="nombre">Nombre del participante</label>
+            <div class="name-picker" data-name-picker>
+              <div class="name-search">
+                <span class="name-search-icon" aria-hidden="true">🔎</span>
+                <input id="nombreSearch" type="search" autocomplete="off" placeholder="Busca tu nombre">
+              </div>
+              <input id="nombre" name="nombre" type="hidden" required>
+              <div class="name-options" role="listbox" aria-label="Nombres disponibles">
+                <button class="name-option" type="button" data-name-option="Tita" data-name-label="Tita">Tita</button><button class="name-option" type="button" data-name-option="Ricar" data-name-label="Ricar">Ricar</button><button class="name-option" type="button" data-name-option="María Paz" data-name-label="María Paz">María Paz</button><button class="name-option" type="button" data-name-option="Pacita" data-name-label="Pacita">Pacita</button><button class="name-option" type="button" data-name-option="Yayo" data-name-label="Yayo">Yayo</button><button class="name-option" type="button" data-name-option="Rafa" data-name-label="Rafa">Rafa</button><button class="name-option" type="button" data-name-option="Tinti" data-name-label="Tinti">Tinti</button><button class="name-option" type="button" data-name-option="Pablo" data-name-label="Pablo">Pablo</button><button class="name-option" type="button" data-name-option="Jota" data-name-label="Jota">Jota</button><button class="name-option" type="button" data-name-option="Trini Mamá" data-name-label="Trini Mamá">Trini Mamá</button><button class="name-option" type="button" data-name-option="Keno" data-name-label="Keno">Keno</button><button class="name-option" type="button" data-name-option="Trinita" data-name-label="Trinita">Trinita</button><button class="name-option" type="button" data-name-option="Josefa" data-name-label="Josefa">Josefa</button><button class="name-option" type="button" data-name-option="Rosario" data-name-label="Rosario">Rosario</button><button class="name-option" type="button" data-name-option="Toti" data-name-label="Toti">Toti</button><button class="name-option" type="button" data-name-option="Ángela" data-name-label="Ángela">Ángela</button><button class="name-option" type="button" data-name-option="Max" data-name-label="Max">Max</button><button class="name-option" type="button" data-name-option="Seba" data-name-label="Seba">Seba</button><button class="name-option" type="button" data-name-option="Fran" data-name-label="Fran">Fran</button><button class="name-option" type="button" data-name-option="Antonia" data-name-label="Antonia">Antonia</button><button class="name-option" type="button" data-name-option="Vicente" data-name-label="Vicente">Vicente</button><button class="name-option" type="button" data-name-option="Felipe" data-name-label="Felipe">Felipe</button><button class="name-option" type="button" data-name-option="Berni" data-name-label="Berni">Berni</button><button class="name-option" type="button" data-name-option="León" data-name-label="León">León</button><button class="name-option" type="button" data-name-option="Juan Pablo" data-name-label="Juan Pablo">Juan Pablo</button><button class="name-option" type="button" data-name-option="María José" data-name-label="María José">María José</button><button class="name-option" type="button" data-name-option="Juanpito" data-name-label="Juanpito">Juanpito</button><button class="name-option" type="button" data-name-option="Martín" data-name-label="Martín">Martín</button><button class="name-option" type="button" data-name-option="Nico" data-name-label="Nico">Nico</button><button class="name-option" type="button" data-name-option="Caro" data-name-label="Caro">Caro</button><button class="name-option" type="button" data-name-option="Gracia" data-name-label="Gracia">Gracia</button><button class="name-option" type="button" data-name-option="Nico jr" data-name-label="Nico jr">Nico jr</button>
+              </div>
+              <p class="name-empty" hidden>No se encontraron nombres.</p>
+            </div>
           </div>
           <div class="field champion-field">
             <span class="section-title">Campeón del Mundo</span>
@@ -1596,10 +1671,10 @@
     const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybBXFJiatIXBqeXPSle-3FovQtZ074LWgiI-8IU4oCvGi-_p0IOfZ3im8equmiyFJo/exec";
     const ETAPA = "E01";
     const GRUPO = "familia";
-    const FORM_METADATA = {"etapa": "E01", "grupo": "familia", "hoja": "Fase de Grupos", "generado": "2026-05-27T17:55:42", "total_partidos": 25};
+    const FORM_METADATA = {"etapa": "E01", "grupo": "familia", "hoja": "Fase de Grupos", "generado": "2026-05-29T16:10:33", "total_partidos": 25};
     const PARTIDOS = [{"numero": 1, "equipo_a": "México", "equipo_b": "Sudáfrica", "bandera_a": "🇲🇽", "bandera_b": "🇿🇦", "opciones": ["Gana México", "Empate", "Gana Sudáfrica"]}, {"numero": 2, "equipo_a": "Estados Unidos", "equipo_b": "Paraguay", "bandera_a": "🇺🇸", "bandera_b": "🇵🇾", "opciones": ["Gana Estados Unidos", "Empate", "Gana Paraguay"]}, {"numero": 3, "equipo_a": "Brasil", "equipo_b": "Marruecos", "bandera_a": "🇧🇷", "bandera_b": "🇲🇦", "opciones": ["Gana Brasil", "Empate", "Gana Marruecos"]}, {"numero": 4, "equipo_a": "Australia", "equipo_b": "Turquía", "bandera_a": "🇦🇺", "bandera_b": "🇹🇷", "opciones": ["Gana Australia", "Empate", "Gana Turquía"]}, {"numero": 5, "equipo_a": "Holanda", "equipo_b": "Japón", "bandera_a": "🇳🇱", "bandera_b": "🇯🇵", "opciones": ["Gana Holanda", "Empate", "Gana Japón"]}, {"numero": 6, "equipo_a": "Bélgica", "equipo_b": "Egipto", "bandera_a": "🇧🇪", "bandera_b": "🇪🇬", "opciones": ["Gana Bélgica", "Empate", "Gana Egipto"]}, {"numero": 7, "equipo_a": "Francia", "equipo_b": "Senegal", "bandera_a": "🇫🇷", "bandera_b": "🇸🇳", "opciones": ["Gana Francia", "Empate", "Gana Senegal"]}, {"numero": 8, "equipo_a": "Argentina", "equipo_b": "Argelia", "bandera_a": "🇦🇷", "bandera_b": "🇩🇿", "opciones": ["Gana Argentina", "Empate", "Gana Argelia"]}, {"numero": 9, "equipo_a": "Inglaterra", "equipo_b": "Croacia", "bandera_a": "🏴", "bandera_b": "🇭🇷", "opciones": ["Gana Inglaterra", "Empate", "Gana Croacia"]}, {"numero": 10, "equipo_a": "México", "equipo_b": "Corea", "bandera_a": "🇲🇽", "bandera_b": "🇰🇷", "opciones": ["Gana México", "Empate", "Gana Corea"]}, {"numero": 11, "equipo_a": "Estados Unidos", "equipo_b": "Australia", "bandera_a": "🇺🇸", "bandera_b": "🇦🇺", "opciones": ["Gana Estados Unidos", "Empate", "Gana Australia"]}, {"numero": 12, "equipo_a": "Holanda", "equipo_b": "Suecia", "bandera_a": "🇳🇱", "bandera_b": "🇸🇪", "opciones": ["Gana Holanda", "Empate", "Gana Suecia"]}, {"numero": 13, "equipo_a": "Bélgica", "equipo_b": "Irán", "bandera_a": "🇧🇪", "bandera_b": "🇮🇷", "opciones": ["Gana Bélgica", "Empate", "Gana Irán"]}, {"numero": 14, "equipo_a": "Argentina", "equipo_b": "Austria", "bandera_a": "🇦🇷", "bandera_b": "🇦🇹", "opciones": ["Gana Argentina", "Empate", "Gana Austria"]}, {"numero": 15, "equipo_a": "Noruega", "equipo_b": "Senegal", "bandera_a": "🇳🇴", "bandera_b": "🇸🇳", "opciones": ["Gana Noruega", "Empate", "Gana Senegal"]}, {"numero": 16, "equipo_a": "Suiza", "equipo_b": "Canadá", "bandera_a": "🇨🇭", "bandera_b": "🇨🇦", "opciones": ["Gana Suiza", "Empate", "Gana Canadá"]}, {"numero": 17, "equipo_a": "Ecuador", "equipo_b": "Alemania", "bandera_a": "🇪🇨", "bandera_b": "🇩🇪", "opciones": ["Gana Ecuador", "Empate", "Gana Alemania"]}, {"numero": 18, "equipo_a": "Japón", "equipo_b": "Suecia", "bandera_a": "🇯🇵", "bandera_b": "🇸🇪", "opciones": ["Gana Japón", "Empate", "Gana Suecia"]}, {"numero": 19, "equipo_a": "Turquía", "equipo_b": "Estados Unidos", "bandera_a": "🇹🇷", "bandera_b": "🇺🇸", "opciones": ["Gana Turquía", "Empate", "Gana Estados Unidos"]}, {"numero": 20, "equipo_a": "Paraguay", "equipo_b": "Australia", "bandera_a": "🇵🇾", "bandera_b": "🇦🇺", "opciones": ["Gana Paraguay", "Empate", "Gana Australia"]}, {"numero": 21, "equipo_a": "Uruguay", "equipo_b": "España", "bandera_a": "🇺🇾", "bandera_b": "🇪🇸", "opciones": ["Gana Uruguay", "Empate", "Gana España"]}, {"numero": 22, "equipo_a": "Noruega", "equipo_b": "Francia", "bandera_a": "🇳🇴", "bandera_b": "🇫🇷", "opciones": ["Gana Noruega", "Empate", "Gana Francia"]}, {"numero": 23, "equipo_a": "Egipto", "equipo_b": "Irán", "bandera_a": "🇪🇬", "bandera_b": "🇮🇷", "opciones": ["Gana Egipto", "Empate", "Gana Irán"]}, {"numero": 24, "equipo_a": "Argelia", "equipo_b": "Austria", "bandera_a": "🇩🇿", "bandera_b": "🇦🇹", "opciones": ["Gana Argelia", "Empate", "Gana Austria"]}, {"numero": 25, "equipo_a": "Colombia", "equipo_b": "Portugal", "bandera_a": "🇨🇴", "bandera_b": "🇵🇹", "opciones": ["Gana Colombia", "Empate", "Gana Portugal"]}];
     const DEADLINES = {"fase-grupos": {"etapa_id": "E01", "section_id": "fase-grupos", "nombre_fase": "Fase de grupos", "kickoff_chile": "2026-06-11 15:00", "deadline_chile": "2026-06-11 15:00", "deadline_iso": "2026-06-11T15:00:00-04:00", "deadline_label": "11 de junio de 2026, 15:00", "habilitado": true, "mensaje_cerrado": "Este formulario ya está cerrado. El plazo para responder terminó el 11 de junio de 2026 a las 15:00 hrs de Chile."}, "dieciseisavos": {"etapa_id": "E02", "section_id": "dieciseisavos", "nombre_fase": "Dieciseisavos", "kickoff_chile": "2026-06-28 15:00", "deadline_chile": "2026-06-28 15:00", "deadline_iso": "2026-06-28T15:00:00-04:00", "deadline_label": "28 de junio de 2026, 15:00", "habilitado": false, "mensaje_cerrado": "Este formulario todavía no se encuentra disponible o está fuera de plazo."}, "octavos": {"etapa_id": "E03", "section_id": "octavos", "nombre_fase": "Octavos", "kickoff_chile": "2026-07-04 13:00", "deadline_chile": "2026-07-04 13:00", "deadline_iso": "2026-07-04T13:00:00-04:00", "deadline_label": "4 de julio de 2026, 13:00", "habilitado": false, "mensaje_cerrado": "Este formulario todavía no se encuentra disponible o está fuera de plazo."}, "cuartos": {"etapa_id": "E04", "section_id": "cuartos", "nombre_fase": "Cuartos", "kickoff_chile": "2026-07-09 16:00", "deadline_chile": "2026-07-09 16:00", "deadline_iso": "2026-07-09T16:00:00-04:00", "deadline_label": "9 de julio de 2026, 16:00", "habilitado": false, "mensaje_cerrado": "Este formulario todavía no se encuentra disponible o está fuera de plazo."}, "semifinales": {"etapa_id": "E05", "section_id": "semifinales", "nombre_fase": "Semifinales", "kickoff_chile": "2026-07-14 15:00", "deadline_chile": "2026-07-14 15:00", "deadline_iso": "2026-07-14T15:00:00-04:00", "deadline_label": "14 de julio de 2026, 15:00", "habilitado": false, "mensaje_cerrado": "Este formulario todavía no se encuentra disponible o está fuera de plazo."}, "final": {"etapa_id": "E06", "section_id": "final", "nombre_fase": "Final", "kickoff_chile": "2026-07-19 15:00", "deadline_chile": "2026-07-19 15:00", "deadline_iso": "2026-07-19T15:00:00-04:00", "deadline_label": "19 de julio de 2026, 15:00", "habilitado": false, "mensaje_cerrado": "Este formulario todavía no se encuentra disponible o está fuera de plazo."}};
-    const NOMBRES_PARTICIPANTES = [];
+    const NOMBRES_PARTICIPANTES = ["Tita", "Ricar", "María Paz", "Pacita", "Yayo", "Rafa", "Tinti", "Pablo", "Jota", "Trini Mamá", "Keno", "Trinita", "Josefa", "Rosario", "Toti", "Ángela", "Max", "Seba", "Fran", "Antonia", "Vicente", "Felipe", "Berni", "León", "Juan Pablo", "María José", "Juanpito", "Martín", "Nico", "Caro", "Gracia", "Nico jr"];
     const TRANSFERENCIA = {"nombre": "Eugenio Irarrazaval", "rut": "20829077-0", "banco": "Banco Santander", "tipo_cuenta": "Cuenta Vista", "numero_cuenta": "0-011-00-46130-3", "correo": "eirarrazavalr@gmail.com"};
     const TRANSFER_TEXT = [
       TRANSFERENCIA.nombre,
@@ -1730,6 +1805,10 @@
     const copyTransferButton = document.querySelector("#copyTransferButton");
     const copyTransferStatus = document.querySelector("#copyTransferStatus");
     const matchCards = Array.from(document.querySelectorAll("[data-match-card]"));
+    const namePicker = document.querySelector("[data-name-picker]");
+    const nombreSearch = document.querySelector("#nombreSearch");
+    const nameOptionButtons = Array.from(document.querySelectorAll("[data-name-option]"));
+    const nameEmptyMessage = document.querySelector(".name-empty");
 
     function setStatus(message, type = "") {
       statusMessage.textContent = message;
@@ -1741,7 +1820,7 @@
     }
 
     function setFormFieldsDisabled(disabled) {
-      form.querySelectorAll("input, select, textarea").forEach((field) => {
+      form.querySelectorAll("input, select, textarea, button").forEach((field) => {
         field.disabled = disabled;
       });
     }
@@ -1813,6 +1892,184 @@
 
     copyTransferButton.addEventListener("click", copyTransferData);
 
+    function normalizarNombre(valor) {
+      return String(valor || "")
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[̀-ͯ]/g, "")
+        .replace(/\s+/g, " ");
+    }
+
+    function normalizeSearchText(text) {
+      return normalizarNombre(text);
+    }
+
+    function nombreOptionValue(button) {
+      return button.dataset.nameOption || button.dataset.nameLabel || button.textContent;
+    }
+
+    function nombreOptionLabel(button) {
+      return button.dataset.nameLabel || nombreOptionValue(button);
+    }
+
+    function limpiarNombreSeleccionado() {
+      nombreInput.value = "";
+      if (nombreSearch) {
+        nombreSearch.value = "";
+      }
+    }
+
+    function marcarNombresUsados(nombresUsados) {
+      if (!namePicker || !Array.isArray(nombresUsados)) return;
+
+      const usados = new Set(nombresUsados.map(normalizarNombre));
+      let limpiarSeleccion = false;
+
+      nameOptionButtons.forEach((button) => {
+        const nombre = nombreOptionValue(button);
+        const label = nombreOptionLabel(button);
+        const usado = button.dataset.nameUsed === "true" || usados.has(normalizarNombre(nombre));
+
+        button.dataset.nameUsed = usado ? "true" : "false";
+        button.textContent = usado ? `${label} — Ya respondió` : label;
+        button.classList.toggle("is-used", usado);
+
+        if (usado && normalizarNombre(nombreInput.value) === normalizarNombre(nombre)) {
+          limpiarSeleccion = true;
+        }
+      });
+
+      if (limpiarSeleccion) {
+        limpiarNombreSeleccionado();
+      }
+
+      syncNameOptions();
+      actualizarEstado();
+    }
+
+    function consultarNombresUsados() {
+      if (!namePicker || !nameOptionButtons.length) return;
+
+      const urlConfigurada = GOOGLE_APPS_SCRIPT_URL &&
+        GOOGLE_APPS_SCRIPT_URL !== "PEGAR_AQUI_URL_DE_APPS_SCRIPT";
+
+      if (!urlConfigurada) return;
+
+      const callbackName = `jsonpNombresUsados_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+      let script = null;
+      let timeoutId = null;
+      let finalizado = false;
+
+      const cleanup = () => {
+        if (finalizado) return;
+        finalizado = true;
+        window.clearTimeout(timeoutId);
+        if (script && script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+        try {
+          delete window[callbackName];
+        } catch (error) {
+          window[callbackName] = undefined;
+        }
+      };
+
+      window[callbackName] = (respuesta) => {
+        try {
+          if (!respuesta || respuesta.ok !== true || !Array.isArray(respuesta.nombres_usados)) {
+            console.warn("Respuesta inválida al consultar nombres usados.", respuesta);
+            return;
+          }
+
+          marcarNombresUsados(respuesta.nombres_usados);
+        } finally {
+          cleanup();
+        }
+      };
+
+      try {
+        const url = new URL(GOOGLE_APPS_SCRIPT_URL);
+        url.searchParams.set("accion", "nombres_usados");
+        url.searchParams.set("grupo", GRUPO);
+        url.searchParams.set("etapa", ETAPA);
+        url.searchParams.set("callback", callbackName);
+        url.searchParams.set("_", Date.now().toString());
+
+        script = document.createElement("script");
+        script.src = url.toString();
+        script.async = true;
+        script.onerror = () => {
+          console.warn("No se pudieron consultar los nombres usados.");
+          cleanup();
+        };
+
+        timeoutId = window.setTimeout(() => {
+          console.warn("La consulta de nombres usados demoró demasiado.");
+          cleanup();
+        }, 7000);
+
+        document.body.appendChild(script);
+      } catch (error) {
+        console.warn("No se pudo preparar la consulta de nombres usados.", error);
+        cleanup();
+      }
+    }
+
+    function syncNameOptions() {
+      if (!namePicker || !nombreSearch) return;
+
+      const query = normalizeSearchText(nombreSearch.value);
+      let visibles = 0;
+
+      nameOptionButtons.forEach((button) => {
+        const nombre = nombreOptionValue(button);
+        const usado = button.dataset.nameUsed === "true";
+        const visible = !query || normalizeSearchText(nombre).includes(query);
+        button.hidden = !visible;
+        button.classList.toggle("is-selected", nombreInput.value === nombre);
+        button.classList.toggle("is-used", usado);
+        button.disabled = faseGruposBloqueada() || usado;
+        if (visible) {
+          visibles += 1;
+        }
+      });
+
+      if (nameEmptyMessage) {
+        nameEmptyMessage.hidden = visibles > 0;
+      }
+    }
+
+    function setSelectedName(nombre) {
+      nombreInput.value = nombre;
+      if (nombreSearch) {
+        nombreSearch.value = nombre;
+      }
+      syncNameOptions();
+      actualizarEstado();
+    }
+
+    function initNamePicker() {
+      if (!namePicker || !nombreSearch) return;
+
+      nombreSearch.addEventListener("input", () => {
+        if (normalizeSearchText(nombreSearch.value) !== normalizeSearchText(nombreInput.value)) {
+          nombreInput.value = "";
+        }
+        syncNameOptions();
+        actualizarEstado();
+      });
+
+      nameOptionButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (button.disabled || button.dataset.nameUsed === "true") return;
+          setSelectedName(nombreOptionValue(button));
+        });
+      });
+
+      syncNameOptions();
+    }
+
     function respuestasCompletas() {
       return matchCards.filter((card) => card.querySelector("input[type='radio']:checked")).length;
     }
@@ -1872,6 +2129,7 @@
         state.textContent = checked ? "Respondido" : "Sin responder";
       });
 
+      syncNameOptions();
       submitButton.disabled = faseGruposBloqueadaAhora || !(datosBaseCompletos() && respondidas === total);
     }
 
@@ -1939,6 +2197,8 @@
 
       submitButton.disabled = true;
       setStatus("Enviando respuestas...", "");
+      const nombreEnviado = nombreInput.value.trim();
+      const payload = construirPayload();
 
 
       try {
@@ -1948,11 +2208,13 @@
           headers: {
             "Content-Type": "text/plain;charset=utf-8"
           },
-          body: JSON.stringify(construirPayload())
+          body: JSON.stringify(payload)
         });
 
         setStatus("¡Respuestas enviadas correctamente!", "ok");
+        marcarNombresUsados([nombreEnviado]);
         form.reset();
+        limpiarNombreSeleccionado();
       } catch (error) {
         console.error(error);
         setStatus("Hubo un problema al enviar. Revisa tu conexión o intenta nuevamente.", "error");
@@ -1964,6 +2226,8 @@
     form.addEventListener("input", actualizarEstado);
     form.addEventListener("change", actualizarEstado);
     form.addEventListener("submit", enviarFormulario);
+    initNamePicker();
+    consultarNombresUsados();
     updateFutureSectionMessages();
     actualizarEstado();
   </script>
